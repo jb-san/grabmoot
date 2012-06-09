@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'grabmoot'
+puts GrabMoot.down_thread(ARGV[0])
