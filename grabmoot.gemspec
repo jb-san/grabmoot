@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'grabmoot'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.executables << 'grabmoot'
   s.date        = '2012-06-09'
   s.summary     = "Grab images from a 4chan thread"
