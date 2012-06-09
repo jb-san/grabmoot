@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'openssl'
 # The main GrabMoot Class
 class GrabMoot
   # GrabMoot will be able to download all images from any thread passed in
@@ -13,7 +14,7 @@ class GrabMoot
   def self.down_thread(url)
     begin
       puts "Hey Anon! Hope this helps."
-      doc = Nokogiri::HTML(open(url))
+      doc = Nokogiri::HTML(open(url,:ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
       doc.xpath("//a[@class='fileThumb']").each do |link|
         img_url = "http:#{link.attributes['href'].to_s}"
         open(img_url) {|f|
@@ -23,9 +24,12 @@ class GrabMoot
         }
       end
       puts "Finished!"
-    rescue
+    rescue Exception => e
       puts "You probably forgot the URL from the thread you need.\n"
-      puts "If you did, then check your internet connection"
+      puts "If you did, then check your internet connection\n"
+      puts "If you did both, email this to me\n"
+      puts e.message
+      puts e.backtrace
     end
   end
 end

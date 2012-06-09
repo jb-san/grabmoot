@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'grabmoot'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.executables << 'grabmoot'
   s.date        = '2012-06-09'
   s.summary     = "Grab images from a 4chan thread"
@@ -9,4 +9,9 @@ Gem::Specification.new do |s|
   s.email       = 'enrique.j.matta@gmail.com'
   s.files       = ["lib/grabmoot.rb"]
   s.homepage    = 'https://github.com/enriquem/grabmoot'
+  s.add_development_dependency "nokogiri", ">= 1.5.3"
+  s.add_runtime_dependency "nokogiri", ">= 1.5.3"
+  s.requirements << 'nokogiri, v1.5.3'
+  s.license = 'BSD'
+  s.required_ruby_version = '>= 1.9.2'
 end
