@@ -12,10 +12,10 @@ class GrabMoot
   #
   # Arguments:
   #   url: (String)
-  def self.down_thread(url)
+  def self.down_thread(url, timeout_var = 120)
     begin
       puts "Hey Anon! Hope this helps."
-      timeout(120) do
+      timeout(timeout_var) do
         doc = Nokogiri::HTML(open(url,:ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
         doc.xpath("//a[@class='fileThumb']").each do |link|
           img_url = "http:#{link.attributes['href'].to_s}"

@@ -2,7 +2,7 @@
 
 require 'grabmoot'
 if(ARGV.empty?)
-  puts "Usage: grabmoot [url]"
+  puts "Usage: grabmoot [url] [nil to disable timeout]"
   exit 0
 end
-puts GrabMoot.down_thread(ARGV[0])
+puts GrabMoot.down_thread(ARGV[0], ARGV[1])
