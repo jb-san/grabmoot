@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'grabmoot'
+if(ARGV.empty?)
+  puts "Usage: grabmoot [url]"
+  exit 0
+end
 puts GrabMoot.down_thread(ARGV[0])
