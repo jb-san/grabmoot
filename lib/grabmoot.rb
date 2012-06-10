@@ -14,6 +14,7 @@ class GrabMoot
   #   url: (String)
   def self.down_thread(url, timeout_var = 120)
     begin
+      timeout_var = nil if timeout_var == "nil"
       puts "Hey Anon! Hope this helps."
       timeout(timeout_var) do
         doc = Nokogiri::HTML(open(url,:ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
